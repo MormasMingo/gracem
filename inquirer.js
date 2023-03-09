@@ -3,17 +3,13 @@ const inquirer = require("inquirer");
 async function chooseTemplate() {
     const promptList = [
         {
-            name: "tempalte",
+            name: "template",
             message: "选择一个需要创建的工程化模板",
             type: "list",
             choices: [
                 {
-                    name: "vue-default",
-                    value: "vue-template-defualt",
-                },
-                {
-                    name: "mock-server",
-                    value: "mock-server",
+                    name: "repo-basic",
+                    value: "repo-basic",
                 },
             ],
         },

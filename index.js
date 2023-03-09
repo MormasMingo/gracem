@@ -2,6 +2,7 @@
 
 const { program } = require("commander");
 const { chooseTemplate } = require("./inquirer");
+const download = require("download-git-repo");
 
 function run() {
     program.version(require("./package.json").version);
@@ -19,8 +20,18 @@ function run() {
                 template = await chooseTemplate();
             }
 
-            console.log(`成功创建项目：${projectName}`);
-            console.log(`所使用的模板：${template}`);
+            const downloadUrl =
+                "https://github.com:MormasMingo/grace-template-basic";
+
+            download(downloadUrl, projectName, (error) => {
+                if (error) {
+                    console.log(`创建项目失败：${projectName}`);
+                    console.log(`失败原因：${error}`);
+                } else {
+                    console.log(`成功创建项目：${projectName}`);
+                    console.log(`所使用的模板：${template}`);
+                }
+            });
         });
 
     program.parse(process.argv);
