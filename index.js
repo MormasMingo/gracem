@@ -3,6 +3,7 @@
 const { program } = require("commander");
 const { chooseTemplate } = require("./inquirer");
 const download = require("download-git-repo");
+const templateConfig = require("./templateConfig");
 
 function run() {
     program.version(require("./package.json").version);
@@ -20,8 +21,7 @@ function run() {
                 template = await chooseTemplate();
             }
 
-            const downloadUrl =
-                "https://github.com:MormasMingo/grace-template-basic";
+            const downloadUrl = templateConfig[template];
 
             download(downloadUrl, projectName, (error) => {
                 if (error) {
