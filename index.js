@@ -5,6 +5,7 @@ const { chooseTemplate } = require('./inquirer');
 const download = require('download-git-repo');
 const templateConfig = require('./templateConfig');
 const ora = require('ora');
+const chalk = require('chalk');
 
 function run() {
     program.version(require('./package.json').version);
@@ -25,7 +26,7 @@ function run() {
             const downloadUrl = templateConfig[template];
 
             const spinner = ora({
-                text: '正在下载模板...',
+                text: chalk.yellow('正在下载模板...'),
                 color: 'yellow',
                 spinner: {
                     interval: 80,
@@ -39,7 +40,9 @@ function run() {
                     spinner.fail(`创建项目失败：${projectName}`);
                     console.log(`失败原因：${error}`);
                 } else {
-                    spinner.succeed(`成功创建项目：${projectName}`);
+                    spinner.succeed(
+                        chalk.green(`成功创建项目：${projectName}`)
+                    );
                     console.log(`所使用的模板：${template}`);
                 }
             });
@@ -49,15 +52,19 @@ function run() {
         .command('test')
         .description('测试ora')
         .action(() => {
-            const spinner = ora({
-                text: '正在下载模板...',
+            /* const spinner = ora({
+                text: chalk.green('测试chalk颜色'),
                 color: 'red',
                 spinner: {
                     interval: 80,
                     frames: ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'],
                 },
             });
-            spinner.start();
+            spinner.start(); */
+            console.log(chalk.yellow('进行中'));
+            console.log(chalk.green('成功'));
+            console.log(chalk.redBright('失败'));
+            console.log(chalk.cyan('信息'));
         });
 
     program.parse(process.argv);
