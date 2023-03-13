@@ -17,21 +17,12 @@ async function create(projectName, options) {
     download(downloadUrl, projectName, template);
 }
 
-function test() {
-    /* const spinner = ora({
-                text: chalk.green('测试chalk颜色'),
-                color: 'red',
-                spinner: {
-                    interval: 80,
-                    frames: ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'],
-                },
-            });
-            spinner.start(); */
+/* function test() {
     console.log(chalk.yellow('进行中'));
     console.log(chalk.green('成功'));
     console.log(chalk.redBright('失败'));
     console.log(chalk.cyan('信息'));
-}
+} */
 
 export default [
     {
@@ -40,9 +31,9 @@ export default [
         option: ['-T, --template [template]', '输入使用额模板数字'],
         action: create,
     },
-    {
+    /* {
         command: 'test',
         description: '测试ora和chalk',
         action: test,
-    },
+    }, */
 ];
