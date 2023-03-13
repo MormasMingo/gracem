@@ -1,7 +1,7 @@
 import require from './require.js';
 
 const downloadGitRepo = require('download-git-repo');
-const ora = require('ora');
+import ora from 'ora';
 import colorText from './colorText.js';
 
 function download(url, name, template) {

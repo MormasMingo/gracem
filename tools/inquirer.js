@@ -2,7 +2,7 @@ import require from './require.js';
 
 import choiceConfig from '../config/choice.js';
 
-const inquirer = require('inquirer');
+import inquirer from 'inquirer';
 
 async function chooseTemplate() {
     const promptList = [
