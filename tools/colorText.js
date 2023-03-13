@@ -1,3 +1,5 @@
+import require from './require.js';
+
 const chalk = require('chalk');
 
 function colorText(text, type) {
@@ -21,4 +23,4 @@ function colorText(text, type) {
     return typeText;
 }
 
-module.exports = colorText;
+export default colorText;

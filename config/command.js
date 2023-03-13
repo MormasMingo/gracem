@@ -1,6 +1,7 @@
-const { chooseTemplate } = require('../tools/inquirer');
-const templateConfig = require('../config/template');
-const download = require('../tools/download');
+import templateConfig from './template.js';
+
+import { chooseTemplate } from '../tools/inquirer.js';
+import download from '../tools/download.js';
 
 async function create(projectName, options) {
     projectName = projectName || 'untitled';
@@ -32,7 +33,7 @@ function test() {
     console.log(chalk.cyan('信息'));
 }
 
-module.exports = [
+export default [
     {
         command: 'create <projectName>',
         description: '创建一个项目模板',

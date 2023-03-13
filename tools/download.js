@@ -1,6 +1,8 @@
+import require from './require.js';
+
 const downloadGitRepo = require('download-git-repo');
 const ora = require('ora');
-const colorText = require('./colorText');
+import colorText from './colorText.js';
 
 function download(url, name, template) {
     const spinner = ora({
@@ -24,4 +26,4 @@ function download(url, name, template) {
     });
 }
 
-module.exports = download;
+export default download;

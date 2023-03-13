@@ -1,5 +1,8 @@
+import require from './require.js';
+
+import choiceConfig from '../config/choice.js';
+
 const inquirer = require('inquirer');
-const choiceConfig = require('../config/choice');
 
 async function chooseTemplate() {
     const promptList = [
@@ -19,6 +22,4 @@ async function chooseTemplate() {
     return template;
 }
 
-module.exports = {
-    chooseTemplate,
-};
+export { chooseTemplate };

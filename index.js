@@ -1,10 +1,14 @@
 #! /usr/bin/env node
 
+import require from './tools/require.js';
+
+import commandList from './config/command.js';
+import version from './config/version.js';
+
 const { program } = require('commander');
-const commandList = require('./config/command');
 
 function run() {
-    program.version(require('./package.json').version);
+    program.version(version);
 
     commandList.forEach((commandConfig) => {
         let p = program
